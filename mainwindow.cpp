@@ -96,12 +96,12 @@ void MainWindow::readMessages()
 
     if(msg == "true") {
         QMessageBox::information(NULL, "信息提示", "您已经成功登录.",
-                                 QMessageBox::Yes | QMessageBox::No,
+                                 QMessageBox::Yes,
                                  QMessageBox::Yes);
     } else {
         QMessageBox::information(NULL, "信息提示",
-                                 "登录失败！您的登录邮箱或者密码不正确.",
-                                 QMessageBox::Yes | QMessageBox::No,
+                                 "登录失败！您的账号或者密码不正确.",
+                                 QMessageBox::Yes,
                                  QMessageBox::Yes);
         this->clearMSG();
     }
