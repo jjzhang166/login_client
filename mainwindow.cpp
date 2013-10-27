@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+#include "chatwindow.h"
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -98,11 +98,15 @@ void MainWindow::readMessages()
         QMessageBox::information(NULL, "信息提示", "您已经成功登录.",
                                  QMessageBox::Yes,
                                  QMessageBox::Yes);
+
     } else {
         QMessageBox::information(NULL, "信息提示",
                                  "登录失败！您的账号或者密码不正确.",
                                  QMessageBox::Yes,
                                  QMessageBox::Yes);
         this->clearMSG();
+        this->hide();
+        ChatWindow *ctw = new ChatWindow;
+        ctw->show();
     }
 }
