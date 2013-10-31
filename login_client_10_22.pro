@@ -17,7 +17,8 @@ SOURCES += main.cpp\
     chatwindow.cpp
 
 HEADERS  += mainwindow.h \
-    chatwindow.h
+    chatwindow.h \
+    TYPES.h
 
 FORMS    += \
     mainwindow.ui \

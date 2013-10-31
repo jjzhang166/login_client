@@ -3,12 +3,13 @@
 
 #include <QWidget>
 #include <QtNetwork/QUdpSocket>
+#include <QDataStream>
+#include <QByteArray>
+#include "TYPES.h"
 
 namespace Ui {
 class ChatWindow;
 }
-
-enum SendType{Message,Join,Leave};
 
 class ChatWindow : public QWidget
 {
@@ -24,7 +25,7 @@ private slots:
 private:
     Ui::ChatWindow *ui;
     QUdpSocket *udpsocket;
-    void    Sendmessage(SendType);
+    void    Sendmessage(Type);
 
 private slots:
     void processPendingDatagrams();
