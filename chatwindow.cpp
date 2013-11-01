@@ -23,10 +23,10 @@ void ChatWindow::processPendingDatagrams()
         QByteArray datagram;
         datagram.resize(udpsocket->pendingDatagramSize());
         QDataStream in(&datagram,QIODevice::ReadOnly);
-        Type type;
+        int type;
         in>>type;
         switch (type) {
-        case Message:
+        case Message:udpsocket->peerAddress();//获取远程IP地址
             break;
         case Join:
             break;
