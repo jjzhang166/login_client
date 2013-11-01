@@ -14,12 +14,15 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    chatwindow.cpp
+    chatwindow.cpp \
+    signup.cpp
 
 HEADERS  += mainwindow.h \
     chatwindow.h \
-    TYPES.h
+    TYPES.h \
+    signup.h
 
 FORMS    += \
     mainwindow.ui \
-    chatwindow.ui
+    chatwindow.ui \
+    signup.ui

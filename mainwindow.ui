@@ -105,12 +105,26 @@
      <string>密码：</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>70</y>
+      <width>51</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>注册</string>
+    </property>
+   </widget>
    <zorder>pushButton_Clear</zorder>
    <zorder>pushButton_Login</zorder>
    <zorder>label_Username</zorder>
    <zorder>label_Passwd</zorder>
    <zorder>lineEdit_Passwd</zorder>
    <zorder>lineEdit_Username</zorder>
+   <zorder>pushButton</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
