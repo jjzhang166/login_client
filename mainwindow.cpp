@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "chatwindow.h"
+#include "signup.h"
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -109,4 +110,10 @@ void MainWindow::readMessages()
         ChatWindow *ctw = new ChatWindow;
         ctw->show();
     }
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    SignUp *signup = new SignUp;
+    signup->show();
 }

@@ -17,7 +17,7 @@ SignUp::~SignUp()
     delete ui;
 }
 
-SignUp::initConnect()
+void SignUp::initConnect()
 {
     udpsocket = new QUdpSocket;
     udpsocket->bind(7777,QUdpSocket::ShareAddress | QUdpSocket::ReuseAddressHint);
@@ -64,24 +64,26 @@ void SignUp::ReadMessage()
         int type;
         in>>type;
         QString tmp;
-        switch(type)
-        {
-SignupRes:
+        if(type==SignupRes)
         {
             in>>tmp;
-            if(tmp=="OK")
-                QMessageBox::information(NULL, "信息提示", "注册成功",
-                                         QMessageBox::Yes,
-                                         QMessageBox::Yes);
-            else
+            if(tmp==ui->lineEdit_Username->text())
             {
-                QMessageBox::information(NULL, "信息提示", "注册失败,该用户名已被注册",
-                                         QMessageBox::Yes,
-                                         QMessageBox::Yes);
+                in>>tmp;
+                if(tmp=="OK")
+                {
+                    QMessageBox::information(NULL, "信息提示", "注册成功",
+                                             QMessageBox::Yes,
+                                             QMessageBox::Yes);
+                }
+                else
+                {
+                    QMessageBox::information(NULL, "信息提示", "注册失败,该用户名已被注册",
+                                             QMessageBox::Yes,
+                                             QMessageBox::Yes);
+                }
             }
             return;
-        }
-        default:return;
         }
     }
 }

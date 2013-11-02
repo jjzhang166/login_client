@@ -33,6 +33,8 @@ private slots:
     void readMessages();
     void clearMSG();
 
+    void on_pushButton_clicked();
+
 private:
        void sendMessages();
        void LocalVerify();
