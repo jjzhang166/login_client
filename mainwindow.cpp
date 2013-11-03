@@ -113,6 +113,9 @@ void MainWindow::readMessages()
     }
 }
 
+/**
+ * @brief MainWindow::on_pushButton_clicked 注册页
+ */
 void MainWindow::on_pushButton_clicked()
 {
     SignUp *signup = new SignUp;

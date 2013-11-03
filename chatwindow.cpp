@@ -17,7 +17,10 @@ ChatWindow::~ChatWindow()
 {
     delete ui;
 }
-//enum Type{Message,Join,Leave};
+
+/**
+ * @brief ChatWindow::processPendingDatagrams 收取信息
+ */
 void ChatWindow::processPendingDatagrams()
 {
     while (udpsocket->hasPendingDatagrams()) {
@@ -37,6 +40,9 @@ void ChatWindow::processPendingDatagrams()
     }
 }
 
+/**
+ * @brief ChatWindow::Sendmessage 发送信息
+ */
 void ChatWindow::Sendmessage(Type TYPE)
 {
     QByteArray data;

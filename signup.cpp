@@ -17,6 +17,9 @@ SignUp::~SignUp()
     delete ui;
 }
 
+/**
+ * @brief SignUp::initConnect 初始化链接
+ */
 void SignUp::initConnect()
 {
     udpsocket = new QUdpSocket;
@@ -24,6 +27,9 @@ void SignUp::initConnect()
     connect(udpsocket,SIGNAL(readyRead()),this,SLOT(ReadMessage()));
 }
 
+/**
+ * @brief SignUp::SendMSG 发送注册消息
+ */
 void SignUp::SendMSG()
 {
     if(!LocalVerify())return;
@@ -35,6 +41,9 @@ void SignUp::SendMSG()
     udpsocket->writeDatagram(data,data.length(),QHostAddress::Broadcast,7777);//hostaddress要改成服务器
 }
 
+/**
+ * @brief SignUp::LocalVerify 本地验证，账号密码输入框不能为空
+ */
 int SignUp::LocalVerify()
 {
     if(ui->lineEdit_Username->text()=="")
@@ -54,6 +63,9 @@ int SignUp::LocalVerify()
     return 1;
 }
 
+/**
+ * @brief SignUp::ReadMessage 读取注册返回信息
+ */
 void SignUp::ReadMessage()
 {
     while (udpsocket->hasPendingDatagrams()) {
@@ -88,6 +100,9 @@ void SignUp::ReadMessage()
     }
 }
 
+/**
+ * @brief SignUp::clearMSG 清除输入框
+ */
 void SignUp::clearMSG()
 {
     this->ui->lineEdit_Username->setText("");
