@@ -99,6 +99,10 @@ void MainWindow::readMessages()
         QMessageBox::information(NULL, "信息提示", "您已经成功登录.",
                                  QMessageBox::Yes,
                                  QMessageBox::Yes);
+        //this->clearMSG();
+        this->hide();
+        ChatWindow *ctw = new ChatWindow(this->ui->lineEdit_Username->text());
+        ctw->show();
 
     } else {
         QMessageBox::information(NULL, "信息提示",
@@ -106,9 +110,6 @@ void MainWindow::readMessages()
                                  QMessageBox::Yes,
                                  QMessageBox::Yes);
         this->clearMSG();
-        this->hide();
-        ChatWindow *ctw = new ChatWindow;
-        ctw->show();
     }
 }
 

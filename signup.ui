@@ -32,6 +32,9 @@
      <height>21</height>
     </rect>
    </property>
+   <property name="inputMethodHints">
+    <set>Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText|Qt::ImhSensitiveData</set>
+   </property>
   </widget>
   <widget class="QLabel" name="label_Username">
    <property name="geometry">

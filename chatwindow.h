@@ -16,15 +16,15 @@ class ChatWindow : public QWidget
     Q_OBJECT
 
 public:
-    explicit ChatWindow(QWidget *parent = 0);
+    explicit ChatWindow(QString username,QWidget *parent = 0);
     ~ChatWindow();
-
 private slots:
     void on_pushButton_clicked();
 
 private:
     Ui::ChatWindow *ui;
     QUdpSocket *udpsocket;
+    QString username;
     void    Sendmessage(Type);
 
 private slots:

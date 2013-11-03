@@ -1,7 +1,7 @@
 #include "chatwindow.h"
 #include "ui_chatwindow.h"
 
-ChatWindow::ChatWindow(QWidget *parent) :
+ChatWindow::ChatWindow(QString username, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ChatWindow)
 {
@@ -9,6 +9,7 @@ ChatWindow::ChatWindow(QWidget *parent) :
     udpsocket=new QUdpSocket;
     udpsocket->bind(7777,QUdpSocket::ShareAddress|QUdpSocket::ReuseAddressHint);
     connect(udpsocket,SIGNAL(readyRead()),this,SLOT(processPendingDatagrams()));
+    this->username=username;
     Sendmessage(Join);
 }
 
@@ -42,8 +43,8 @@ void ChatWindow::Sendmessage(Type TYPE)
     QDataStream out(&data,QIODevice::WriteOnly);
     switch(TYPE)
     {
-    case Join:out<<Join;break;
-    case Leave:out<<Leave;break;
+    case Join:out<<Join<<username;break;
+    case Leave:out<<Leave<<username;break;
     case Message:out<<Message<<ui->textEdit->toPlainText();break;
     }
     udpsocket->writeDatagram(data,data.length(),QHostAddress::Broadcast,7777);
